@@ -9,6 +9,7 @@ from django.views.generic import CreateView, DetailView, UpdateView, ListView, D
 
 from movie.forms import MovieForm
 from movie.models import Movie, Actor
+from django.contrib.auth.models import User
 
 
 class AddMovieView(View):
