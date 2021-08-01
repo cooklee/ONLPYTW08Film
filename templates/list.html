@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1 class="text-center">Filmy</h1>
+
+    <ul class="list-group">
+        {% for item in objects %}
+            <li class="list-group-item m-1"> {{ item }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
