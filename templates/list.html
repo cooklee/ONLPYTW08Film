@@ -9,7 +9,7 @@
             <ul class="list-group list-group-horizontal">
                 <a class="list-group-item list-group-item-action" href="{% url 'update_actor' item.id %}">Edytuj </a>
                 <a class="list-group-item list-group-item-action" href="{% url 'detail_actor' item.id %}">Szczegóły </a>
-                <a class="list-group-item list-group-item-action" href="{% url 'update_actor' item.id %}">Usuń </a>
+                <a class="list-group-item list-group-item-action" href="{% url 'delete_actor' item.id %}">Usuń </a>
             </ul>
             </li>
         {% endfor %}

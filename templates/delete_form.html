@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    czy jestes pewien żę chcesz usunąc obiekt {{ object }}.
+    <form method="post" class="bg-light">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="tak">
+    </form>
+{% endblock %}

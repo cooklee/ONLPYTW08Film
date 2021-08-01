@@ -25,4 +25,5 @@ urlpatterns = [
     path('list_actor/', views.ListActorView.as_view(), name='list_actor'),
     path('detailActorView/<int:pk>/', views.DetailActorView.as_view(), name='detail_actor'),
     path('UpdateActorView/<int:pk>/', views.UpdateActorView.as_view(), name='update_actor'),
+    path('DeleteActorView/<int:pk>/', views.DeleteActorView.as_view(), name='delete_actor'),
 ]

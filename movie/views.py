@@ -59,6 +59,11 @@ class UpdateActorView(UpdateView):
         url = reverse('detail_actor', args=(actor.id,))
         return url
 
+class DeleteActorView(DetailView):
+    model = Actor
+    template_name = 'delete_form.html'
+
+
 class ListActorView(ListView):
     model = Actor
     template_name = 'list.html'
