@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from django.urls import reverse
 from django.views import View
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, UpdateView, ListView
 
 from movie.forms import MovieForm
 from movie.models import Movie, Actor
@@ -28,7 +28,7 @@ class AddMovieView(View):
 class ListMovieView(View):
     def get(self, request):
         movies = Movie.objects.all()
-        return render(request, 'list.html', {'objects': movies})
+        return render(request, 'list.html', {'object_list': movies})
 
 
 class AddActorView(CreateView):
@@ -47,3 +47,18 @@ class AddActorView(CreateView):
 class DetailActorView(DetailView):
     model = Actor
     template_name = 'detailActor.html'
+
+
+class UpdateActorView(UpdateView):
+    model = Actor
+    fields = '__all__'
+    template_name = 'form.html'
+
+    def get_success_url(self):
+        actor = self.object
+        url = reverse('detail_actor', args=(actor.id,))
+        return url
+
+class ListActorView(ListView):
+    model = Actor
+    template_name = 'list.html'
