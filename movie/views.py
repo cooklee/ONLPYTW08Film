@@ -3,9 +3,9 @@
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.views import View
-from django.views.generic import CreateView, DetailView, UpdateView, ListView
+from django.views.generic import CreateView, DetailView, UpdateView, ListView, DeleteView
 
 from movie.forms import MovieForm
 from movie.models import Movie, Actor
@@ -59,9 +59,10 @@ class UpdateActorView(UpdateView):
         url = reverse('detail_actor', args=(actor.id,))
         return url
 
-class DeleteActorView(DetailView):
+class DeleteActorView(DeleteView):
     model = Actor
     template_name = 'delete_form.html'
+    success_url = reverse_lazy('list_actor')
 
 
 class ListActorView(ListView):
