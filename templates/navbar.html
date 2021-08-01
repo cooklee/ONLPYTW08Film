@@ -3,4 +3,10 @@
     <a href="{% url 'list_movie' %}" class="list-group-item list-group-item-action">Lista Filmow</a>
     <a href="{% url 'add_actor' %}" class="list-group-item list-group-item-action">Dodaj Aktora</a>
     <a href="{% url 'list_actor' %}" class="list-group-item list-group-item-action">Lista Aktorów</a>
+    {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}" class="list-group-item list-group-item-action">Wyloguj</a>
+    {% else %}
+        <a href="{% url 'login' %}" class="list-group-item list-group-item-action">Zaloguj</a>
+        <a href="{% url 'signup' %}" class="list-group-item list-group-item-action">Rejestracja</a>
+    {% endif %}
 </ul>
