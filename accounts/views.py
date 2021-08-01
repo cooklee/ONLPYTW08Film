@@ -37,9 +37,8 @@ class SignUpView(View):
     def post(self, request):
         form = SingUpForm(request.POST)
         if form.is_valid():
-            data = form.cleaned_data
-            del data['re_password']
-            User.objects.create_user(**data)
+            del form.cleaned_data['re_password']
+            User.objects.create_user(**form.cleaned_data)
             return redirect("/")
         return render(request, 'form.html', {'form': form})
 
