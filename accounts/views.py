@@ -10,6 +10,7 @@ from accounts.forms import LoginForm, SingUpForm
 
 class LoginView(View):
     def get(self, request):
+
         form = LoginForm()
         return render(request, 'form.html', {'form': form})
 

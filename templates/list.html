@@ -7,7 +7,9 @@
         {% for item in object_list %}
             <li class="list-group-item m-1"> {{ item }}
             <ul class="list-group list-group-horizontal">
+                {% if perms.movie.change_actor %}
                 <a class="list-group-item list-group-item-action" href="{% url 'update_actor' item.id %}">Edytuj </a>
+                {% endif %}
                 <a class="list-group-item list-group-item-action" href="{% url 'detail_actor' item.id %}">Szczegóły </a>
                 <a class="list-group-item list-group-item-action" href="{% url 'delete_actor' item.id %}">Usuń </a>
             </ul>
